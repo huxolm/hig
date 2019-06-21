@@ -1,6 +1,6 @@
 import { select, text } from "@storybook/addon-knobs/react";
 
-import { AVAILABLE_SIZES } from "../availableSizes";
+// import { AVAILABLE_SIZES } from "../availableSizes";
 
 const knobGroupIds = {
   basic: "Basic"

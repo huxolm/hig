@@ -1,12 +1,21 @@
-function getSpacing(spacing, themeData) {
-  return themeData[`density.spacings.${sizes[spacing]}`];
-}
-
 export default function stylesheet(props, themeData) {
   return {
-    spacer: {
-      width: props.size ? props.size : getSpacing(props.spacing, themeData),
-      height: props.size ? props.size : getSpacing(props.spacing, themeData)
-    }
+    display: props.isOpen ? "block" : "none",
+    position: "absolute",
+    width: "100%",
+    // maxHeight: constants.menuMaxHeight,
+    top: themeData["input.height"],
+    overflow: "auto",
+    // zIndex: constants.dropdownLayer,
+    boxSizing: "border-box",
+    borderTop: "none",
+    borderTopLeftRadius: themeData["menu.topFlushBorderTopRadius"],
+    borderTopRightRadius: themeData["menu.topFlushBorderTopRadius"],
+    borderBottomLeftRadius: themeData["menu.borderRadius"],
+    borderBottomRightRadius: themeData["menu.borderRadius"],
+    backgroundColor: themeData["menu.backgroundColor"],
+    boxShadow: `0 1px ${themeData["basics.shadows.lowBlur"]} ${
+      themeData["colorScheme.lowShadowColor"]
+    }`
   };
 }

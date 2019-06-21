@@ -1,33 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { ThemeContext } from "@hig/theme-context";
-
 import { css } from "emotion";
+import { ThemeContext } from "@hig/theme-context";
+import stylesheet from "./Menu.stylesheet";
 
-// import stylesheet from "./Spacer.stylesheet";
-import { AVAILABLE_SIZES } from "./availableSizes";
+export default function MenuPresenter(props) {
+  const { innerRef, isOpen, children, ...otherProps } = props;
 
-export default class Spacer extends Component {
-  static propTypes = {
-    /** Used for passing custom values to the spacer, in lieu of a fixed amount */
-    size: PropTypes.string,
-    /** Sets the size of the spacer */
-    spacing: PropTypes.oneOf(AVAILABLE_SIZES)
-  };
-
-  static defaultProps = {
-    spacing: "m"
-  };
-
-  render() {
-    const { size, spacing } = this.props;
-    return (
-      <ThemeContext.Consumer>
-        {({ resolvedRoles }) => {
-          const styles = stylesheet({ size, spacing }, resolvedRoles);
-          return <div className={css(styles.spacer)} />;
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
+  return (
+    <ThemeContext.Consumer>
+      {({ resolvedRoles }) => (
+        <div
+          {...otherProps}
+          ref={innerRef}
+          className={css(stylesheet(props, resolvedRoles))}
+        >
+          {children}
+        </div>
+      )}
+    </ThemeContext.Consumer>
+  );
 }
+
+MenuPresenter.propTypes = {
+  // innerRef: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
+  children: PropTypes.node
+};
