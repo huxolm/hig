@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { sizes as iconSizes } from "@hig/icons";
 import ThemeContext from "@hig/theme-context";
 import Typography from "@hig/typography";
 import { css } from "emotion";
@@ -34,7 +33,7 @@ export default class Link extends Component {
   _renderExternalLinkIcon = styles =>
     this.props.target === "_blank" && (
       <div className={css(styles.externalIcon)}>
-        <ExternalLinkIcon size={iconSizes.PX_24} />
+        <ExternalLinkIcon />
       </div>
     );
 

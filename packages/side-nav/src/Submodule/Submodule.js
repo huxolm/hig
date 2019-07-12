@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { css } from "emotion";
-import { sizes as iconSizes } from "@hig/icons";
 import ThemeContext from "@hig/theme-context";
 import { memoizeCreateButtonEventHandlers } from "@hig/utils";
 
@@ -62,7 +61,7 @@ export default class Submodule extends Component {
                   stylesheet(this.props, resolvedRoles).externalIcon
                 )}
               >
-                <ExternalLinkIcon size={iconSizes.PX_24} />
+                <ExternalLinkIcon />
               </div>
             ) : null}
           </Wrapper>
