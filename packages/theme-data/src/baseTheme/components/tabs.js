@@ -30,7 +30,7 @@ export default {
   },
   "tabs.general.tab.fontSize": {
     type: FONT_SIZE,
-    value: { ref: "typography.h3.fontSize" }
+    value: { ref: "typography.body.fontSize" }
   },
   "tabs.general.tab.fontWeight": {
     type: FONT_WEIGHT,
